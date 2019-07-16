@@ -305,17 +305,17 @@ server <- function(input, output, session){
   
   # upload specialist data frame
   observeEvent(input$file.specialist, {
-    val$specialist <- read.csv(input$file.specialist$datapath, 
-                               sep = ",", stringsAsFactors = F)
+    val$specialist <- rm.space(read.csv(input$file.specialist$datapath, 
+                               sep = ",", stringsAsFactors = F, encoding = "UTF-8"))
     
   })
   
   # upload specialist example
   observeEvent(input$ex_spec, {
-    val$specialist <- read.csv("www/fern_specialists.csv", 
-                               sep = ",", stringsAsFactors = F)
+    val$specialist <- rm.space(read.csv("www/fern_specialists.csv", 
+                               sep = ",", stringsAsFactors = F, encoding = "UTF-8"))
     
-   
+    
   })
   
   # Clear specialist file 
@@ -411,10 +411,10 @@ server <- function(input, output, session){
           output$spec.doubts <- renderUI({
             
             if(length(val$verify) > 0){
-              h4(paste("There are", length(val$verify), 
-                       "doubts about specialists' names. Check the names below."))
+              h4(paste("You need to check", length(val$verify), 
+                       "taxonimist's names that could be specialists."))
             }else{
-              h4("There is no doubt about specialists' names")
+              h4("There is no taxonimist's name to be checked.")
             }
             
           })

@@ -8,13 +8,20 @@ output: html_document
 
 In such data, errors in determination of species identity can led to false positive problem, and, consequently, compromise the use of these data in posterior analysis.
 
-We present **naturaList**, a tool that allows to classify and filter occurrence records downloaded from GBIF on confidence levels of species determination. Since the classification by a specialist ensures great confiability to the species determination, the highest level of confidence is provided by checking if the a recognized specialist made the determination of a specimen. If not, **naturaList** uses other five criterion that correspond to decreasing levels of confidence to categorize the occurrence. 
+We present **naturaList**, a tool that allows to classify and filter occurrence records downloaded from GBIF on confidence levels of species determination. Since the classification by a specialist ensures great confiability to the species determination, the highest level of confidence is provided by checking if the a recognized specialist made the determination of a species. If not, **naturaList** uses other five criterion that correspond to decreasing levels of confidence to categorize the occurrence. 
 
 In order to allow **naturaList** to perform the classification of the occurence based on a specialist determination, the user must to provide a list containing the names of recognized specialists in the taxa of interest. Besides this novelty, the tool allows to filter occurences with the highest level of confidence into grid cells and visualize these occurences in an interactive map. **naturaList** also allows to manually select the filtered occurences in the interactive map before download the final **List** of occurences.
 
 **naturaList** is a useful tool to ensure researchers to have confidence in the taxonomic determination of occurence records of their study.
 
-An example of input table used in **naturaList** is provided by clicking in **use occurence table example** button for occurence data example, and **Use specialist table example** for a data table example containing the specialist in the taxonomic group (*Alsophila setosa*). The user can use these two example data tables to perform all the analysis.
+An example of input table used in **naturaList** is provided by clicking in **use occurence table example** button for occurence data example of *Alsophila setosa*, and **use specialist table example** for a data table example containing the specialist in the taxonomic group. The specialists names is the authors of an article which describes [Diversity of ferns and lycophytes in Brazil] (http://www.scielo.br/scielo.php?pid=S2175-78602015000401073&script=sci_abstract). The user can use these two example data tables to perform all the analysis.
+
+You can run **naturaList** at [shinyapp.io](https://avrodrigues.shinyapps.io/naturaList/) or in R, using the following code:
+
+```
+library(shiny)
+shiny::runGitHub("naturaList", "avrodrigues")
+```
 
 In summary, **naturaList** allows to:
 
@@ -23,20 +30,20 @@ In summary, **naturaList** allows to:
 - **3** manually check and select points in a map;
 - **4** download the occurence data.
 
-### naturaList' modules
+### naturaList modules
 
 #### **Upload and Classification**
 
-In this module the user must upload the occurence records downloaded from [GBIF](https://www.gbif.org) website. Also, the user should provide a list of specialist accordingly with the format described below.
+In this module the user must upload the occurence records downloaded from [GBIF](https://www.gbif.org) website in .csv format. Also, the user should provide a list of specialist following the format described below.
 
 Six criteria are used to create confidence levels of species determination of occurence.  These levels are, in a decreasing scale of confidence:
 
-- **Level 1:** species name was determined by a specialist in the biological group, if not;
+- **Level 1:** species name is determined by a specialist in the biological group, if not;
 - **Level 2:** taxonomist's name is provided, if not;
-- **Level 3:** occurrence have an associated image, if not;
-- **Level 4:** specimen was deposited in a scientific collection, if not;
-- **Level 5:** occurence was determined in a field observation, if not;
-- **Level 6:** no previous criteria was met.
+- **Level 3:** occurrence has an associated image, if not;
+- **Level 4:** specimen is deposited in a scientific collection, if not;
+- **Level 5:** occurence is determined in a field observation, if not;
+- **Level 6:** no previous criteria are met.
 
 The specialist file must be a .csv file containing the specialist's names and abbreviation, which is used to classify an occurrence at Level 1. Specialists' file must present the following format:
 

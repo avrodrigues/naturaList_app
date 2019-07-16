@@ -193,3 +193,11 @@ make.polygon <- function(df){
   sp
   
 }
+
+rm.space <- function(df){
+  rm <- lapply(df, function(x){
+    gsub(" ", "", x)}
+  )
+  
+  as.data.frame(do.call(cbind, rm), stringsAsFactors = F)
+}
