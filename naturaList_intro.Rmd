@@ -1,0 +1,43 @@
+---
+title: "naturaList"
+output: html_document
+---
+### Providing confidence levels in determining species for occurrence records from GBIF
+
+[GBIF](https://www.gbif.org) has more than 1 billion occurence records worldwide. These data have been widely used to species distribution modeling.
+
+In such data, errors in determination of species identity can led to false positive problem, and, consequently, compromise the use of these data in posterior analysis.
+
+We present **naturaList**, a tool that allows to classify and filter occurrence records downloaded from GBIF on confidence levels of species determination. Since the classification by a specialist ensures great confiability to the species determination, the highest level of confidence is provided by checking if the a recognized specialist made the determination of a specimen. If not, **naturaList** uses other five criterion that correspond to decreasing levels of confidence to categorize the occurrence. 
+
+In order to allow **naturaList** to perform the classification of the occurence based on a specialist determination, the user must to provide a list containing the names of recognized specialists in the taxa of interest. Besides this novelty, the tool allows to filter occurences with the highest level of confidence into grid cells and visualize these occurences in an interactive map. **naturaList** also allows to manually select the filtered occurences in the interactive map before download the final **List** of occurences.
+
+**naturaList** is a useful tool to ensure researchers to have confidence in the taxonomic determination of occurence records of their study.
+
+An example of input table used in **naturaList** is provided by clicking in **use occurence table example** button for occurence data example, and **Use specialist table example** for a data table example containing the specialist in the taxonomic group (*Alsophila setosa*). The user can use these two example data tables to perform all the analysis.
+
+In summary, **naturaList** allows to:
+
+- **1** classify occurence records in confidence levels;
+- **2** filter this ocurrences by selecting in grid cells only the records with the highest confidence level;
+- **3** manually check and select points in a map;
+- **4** download the occurence data.
+
+### naturaList' modules
+
+#### **Upload and Classification**
+
+In this module the user must upload the occurence records downloaded from [GBIF](https://www.gbif.org) website. Also, the user should provide a list of specialist accordingly with the format described below.
+
+Six criteria are used to create confidence levels of species determination of occurence.  These levels are, in a decreasing scale of confidence:
+
+- **Level 1:** species name was determined by a specialist in the biological group, if not;
+- **Level 2:** taxonomist's name is provided, if not;
+- **Level 3:** occurrence have an associated image, if not;
+- **Level 4:** specimen was deposited in a scientific collection, if not;
+- **Level 5:** occurence was determined in a field observation, if not;
+- **Level 6:** no previous criteria was met.
+
+The specialist file must be a .csv file containing the specialist's names and abbreviation, which is used to classify an occurrence at Level 1. Specialists' file must present the following format:
+
+**Specialist table example**

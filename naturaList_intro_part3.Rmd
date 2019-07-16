@@ -1,0 +1,9 @@
+---
+output: html_document
+---
+
+#### **Check and download data**
+
+In this module the user can vizualize the occurence points selected after grid filter procedure. The colors of points corresponds to the level of confidence in which the points are classified. The user can mannually filter the occurence records by deleting individual points (turning on the key named **delete points with click**), or selecting a subset of the points by drawing a polygon over the occurences of interest to be maintained. Furthermore, the user can also select a subset of occurence records that match a desirable level of confidence. 
+
+Finally, the user can download the occurence points. Two files are avaiable for download, the first containing the records that result from all filtering procedures performed on the original data (grid filter and any manual procedure). The second file avaiable for download contains all occurence records with geographic coordinates. Both files have all original information provided by GBIF tables plus a new column, called `naturaList_levels`, with the confidence levels in which each record was classified. The following figure illustrate some of the tools avaiable in this module of NaturaList. 
