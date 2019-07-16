@@ -845,7 +845,7 @@ server <- function(input, output, session){
     
     output$download_classified.csv <- downloadHandler(
       filename = function() {
-        paste('naturaList-classified', 'csv', sep='.')
+        paste('naturaList-classified',  Sys.Date(), 'csv', sep='.')
       },
       content = function(con) {
         write.table(data, con, sep = "\t", row.names = F)
