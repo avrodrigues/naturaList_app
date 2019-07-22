@@ -6,11 +6,11 @@ output: html_document
 
 [GBIF](https://www.gbif.org) has more than 1 billion occurence records worldwide. These data have been widely used in species distribution modeling.
 
-In such data, errors in species identification can led to false positive problem, and, consequently, compromise the use of these data in posterior analysis.
+In such data, misidentification (or false positive errors in occurrences) can be a great problem, and, consequently, compromise the use of these data in posterior analysis.
 
 We present **naturaList**, a tool that classifies and filters GBIF occurrence records according to confidence levels of species identification. Since the classification by a specialist ensures great confidence in the species determination, the highest level of confidence is provided for records identified by a recognized specialist. If not, **naturaList** uses other five criterion that correspond to decreasing levels of confidence to categorize the occurrence. 
 
-In order to allow **naturaList** to perform the classification of the occurence based on a specialist determination, the user must to provide a list containing the names of recognized specialists in the taxa of interest. Besides this novelty, the tool allows to filter occurences with the highest level of confidence into grid cells and visualize these occurences in an interactive map. **naturaList** also allows manual selection of filtered occurences in the interactive map before download of the final **List** of occurences.
+In order to allow **naturaList** to perform the classification of the occurence based on a specialist determination, the user must to provide a list containing the names of recognized specialists in the taxa of interest. Besides this novelty, the tool allows to filter occurences with the highest level of confidence into grid cells and visualize these occurences in an interactive map. **naturaList** also allows manual selection of filtered occurences in the interactive map before download of the final **List** of checked occurences.
 
 **naturaList** is a useful tool to ensure researchers to have confidence in the taxonomic determination of occurence records of their study.
 
