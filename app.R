@@ -23,6 +23,11 @@ body <- dashboardBody(
   tabItems(
     tabItem(tabName = "Tutorial", 
             box(width = NULL,
+                fluidRow(
+                  column(width = 6, offset = 2,
+                         iframe(width = "700", height = "394",#840 x 472
+                                url_link = "https://www.youtube.com/embed/f9x06sAOxX0"))
+                ),
                 includeMarkdown("naturaList_intro.Rmd"),
                 fluidRow(
                   column(width = 7, offset=2,
@@ -43,15 +48,11 @@ body <- dashboardBody(
                          )
                 ),
                 
-                includeMarkdown('naturaList_intro_part4.Rmd'),
+                includeMarkdown('naturaList_intro_part4.Rmd')
                 
               
                 
-                fluidRow(
-                  column(width = 6, offset = 3,
-                         iframe(width = "560", height = "315",
-                                url_link = "https://www.youtube.com/embed/QeVGtklLMRE"))
-                ))
+               )
             
     ),
     tabItem(tabName = "Upload", 
@@ -827,7 +828,7 @@ server <- function(input, output, session){
       
       output$download_grid_filter.csv <- downloadHandler(
         filename = function(file) {
-          paste("naturaList_grid_selection", Sys.Date(), ".csv", sep="")
+          paste("naturaList_grid_selection_", Sys.Date(), ".csv", sep="")
         },
         content = function(file) {
           write.table(uploaded.df.sel, file, sep = "\t", row.names = F)
@@ -845,7 +846,7 @@ server <- function(input, output, session){
     
     output$download_classified.csv <- downloadHandler(
       filename = function() {
-        paste('naturaList-classified',  Sys.Date(), 'csv', sep='.')
+        paste('naturaList_classified_',  Sys.Date(), '.csv', sep='')
       },
       content = function(con) {
         write.table(data, con, sep = "\t", row.names = F)
