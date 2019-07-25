@@ -2,4 +2,10 @@
 output: html_document
 ---
 
-If you want more details about **naturaList**, see the video bellow and visit our page on [GitHub](https://github.com/avrodrigues/naturaList/).
+#### **Authors:**
+
+#### *Arthur Vinicius Rodrigues* [GitHub](https://github.com/avrodrigues/) [Researchgate](https://www.researchgate.net/profile/Arthur_Rodrigues7)
+
+#### *Gabriel Nakamura* [GitHub](https://github.com/GabrielNakamura) [Researchgate](https://www.researchgate.net/profile/Gabriel_Nakamura)
+
+##### You find naturaList codes at [GitHub](https://github.com/avrodrigues/naturaList/).

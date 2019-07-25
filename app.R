@@ -219,7 +219,8 @@ body <- dashboardBody(
               )
               ),
               column(9,
-                     leafletOutput("map", height = 500)
+                     leafletOutput("map", height = 500),
+                     verbatimTextOutput("issue")
               )
             )
             
@@ -385,7 +386,7 @@ server <- function(input, output, session){
     
   })
   
-  output$issue <- renderPrint(table(val$df.crit$vetor.criterio))
+  
   
   # Confirm specialist
   observeEvent({input$specialist.yes},{
@@ -836,13 +837,16 @@ server <- function(input, output, session){
     })
   
   
-  observeEvent(input$run.criteria,{
-    
+  observeEvent(input$run.criteria|
+                 input$specialist.yes|
+                 input$specialist.no
+                 ,{
+    crit.vetor <- val$df.crit$vetor.criterio
     id <- val$df.crit$rowID
     df <- val$df
     
     data <- df[id,]
-    data$naturaList_levels <- val$df.crit$vetor.criterio[id]
+    data$naturaList_levels <- crit.vetor
     
     output$download_classified.csv <- downloadHandler(
       filename = function() {
