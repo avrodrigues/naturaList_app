@@ -2,7 +2,7 @@
 title: "naturaList"
 output: html_document
 ---
-### Providing confidence levels in determining species for occurrence records from GBIF
+### Providing confidence levels in determining species for occurrence records
 
 [GBIF](https://www.gbif.org) has more than 1 billion occurence records worldwide. These data have been widely used in species distribution modeling.
 
